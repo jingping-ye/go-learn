@@ -141,6 +141,35 @@ func main(){
 - 当 Go 程序运行时候会自动调用 `main` 函数开始整个程序的执行。
 - `main` 函数不可接收任何参数，也不返回任何结果。
 
+### 其他：创建目录
+
+>  GO会自动到GOPATH下自动寻找模块，所以必须配置GOPATH
+
+```shell
+# linux下添加到环境配置文件
+
+# 查看当前用户
+pwd
+
+# 查看当前用户的工作目录的环境配置文件,一般是
+ls home/<user>/.zshrc
+
+cd home/<user>/
+
+# 添加以下变量到环境
+echo "export GOROOT=/usr/local/go" >>.zshrc       #Golang安装目录
+echo "export PATH=$GOROOT/bin:$PATH" >> .zshrc
+echo "export GOPATH=/home/go" >> .zshrc  #自己的Golang项目目录
+
+# 让配置文件生效
+source .zshrc
+
+#关闭GOMODULE
+go env -w GO111MODULE=off
+```
+
+
+
 ## 类型转换
 
 ## 类型断言
